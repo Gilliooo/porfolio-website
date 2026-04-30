@@ -37,13 +37,13 @@
           <a href="https://github.com/Gilliooo" class="social-link">[github]</a>
           <a href="#" class="social-link">[instagram]</a>
         </div>
-        <a href="#" class="cv-btn">[download_cv]</a>
+        <a href="media/CV_Bill Grandy Tunjung.pdf" download class="cv-btn">[download_cv]</a>
       </div>
       <div class="about-image">
         <img src="image/gillnew2softer_proc.jpg" alt="Profile photo" />
       </div>
     </div>
-  </section>`
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -53,27 +53,39 @@
       <div class="project-card" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor">
         <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" />
         <h3>High-Profile LinkedIn Predictor</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+        <p>A web application that analyzes LinkedIn profile text to predict whether someone holds a high-level leadership position.
+        It uses DistilBERT (via the Hugging Face transformers library) to extract meaning from unstructured career text and
+        passes it through a trained binary classifier to return a confidence score. Built with Python, PyTorch, and Streamlit.</p>
       </div>
 
       <div class="project-card" data-link="https://gilliooo.github.io/Gallerymaker-App/" data-github="https://github.com/Gilliooo/Gallerymaker-App">
         <img class="project-img" src="image/Gallery.png" alt="GalleryMaker - Image Layout Tool" />
-        <h3>GalleryMaker - Image Layout Tool</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+        <h3>GalleryMaker - Collage Layout Tool</h3>
+        <p>A browser-based collage editor for composing gallery-style image layouts directly in the browser. Users arrange photos
+        across customizable grid presets, tune gaps and backgrounds, then export the finished layout as a JPG.
+      
+      Built with JavaScript, HTML/CSS, and html2canvas.</p>
       </div>
 
       <div class="project-card" data-link="#">
         <img class="project-img" src="image/layoutparser.png" alt="Handwriting To Document Parser" />
-        <h3>Handwriting To Document Parser</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+        <h3>Handwriting To Text Parser</h3>
+        <p>Upload a photo of handwritten notes and get clean, structured Markdown back. The app uses a YOLO-based document layout
+        model to identify regions like titles, lists, and paragraphs, then runs a custom-trained character recognition model on
+        each region to transcribe the handwriting.
+        
+        Built with Python, TensorFlow, OpenCV, and Streamlit.</p>
       </div>
 
       <div class="project-card" data-github="https://github.com/Gilliooo/LandscapeClassifier">
         <img class="project-img" src="image/landscapeclassifier.png" alt="Landscape Classifier" />
         <h3>Landscape Classifier</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+        <p>A web application that analyzes uploaded photos to predict the type of landscape shown. It uses a custom-trained
+        Convolutional Neural Network (via Keras/TensorFlow) to extract visual features from images and passes them through a
+        trained multi-class classifier to return the top 3 predictions with confidence scores. Built with Python, Flask, and a
+        vanilla HTML/CSS/JS frontend.</p>
       </div>
-
+<!-- 
       <div class="project-card" data-link="#">
         <div class="img-placeholder"></div>
         <h3>Trackr - Simple Budget Tracker</h3>
@@ -84,7 +96,7 @@
         <div class="img-placeholder"></div>
         <h3>Project Title</h3>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-      </div>
+      </div> -->
 
     </div>
   </section>
