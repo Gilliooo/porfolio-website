@@ -1,26 +1,29 @@
 // script.js
 
-// ── Custom cursor ──
+// ── Custom cursor (hover-capable devices only) ──
 const cursor = document.getElementById('cursor');
-const setX = gsap.quickSetter(cursor, 'x', 'px');
-const setY = gsap.quickSetter(cursor, 'y', 'px');
 
-window.addEventListener('mousemove', (e) => {
-  cursor.classList.add('visible');
-  setX(e.clientX);
-  setY(e.clientY);
-});
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const setX = gsap.quickSetter(cursor, 'x', 'px');
+  const setY = gsap.quickSetter(cursor, 'y', 'px');
 
-document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
-document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
+  window.addEventListener('mousemove', (e) => {
+    cursor.classList.add('visible');
+    setX(e.clientX);
+    setY(e.clientY);
+  });
 
-const clickables = 'a, button, [role="button"], input, select, textarea, label, .project-card';
-document.addEventListener('mouseover', (e) => {
-  if (e.target.closest(clickables)) cursor.classList.add('is-hovering');
-});
-document.addEventListener('mouseout', (e) => {
-  if (e.target.closest(clickables)) cursor.classList.remove('is-hovering');
-});
+  document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+  document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
+
+  const clickables = 'a, button, [role="button"], input, select, textarea, label, .project-card';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(clickables)) cursor.classList.add('is-hovering');
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(clickables)) cursor.classList.remove('is-hovering');
+  });
+}
 
 // ── Smooth scroll ──
 const lenis = new Lenis({
@@ -42,6 +45,8 @@ const modalDesc    = modal.querySelector('.modal-desc');
 const modalLink    = modal.querySelector('.modal-link');
 const modalGithub  = modal.querySelector('.modal-github');
 const modalClose   = modal.querySelector('.modal-close');
+
+let modalHistoryPushed = false;
 
 function openModal(card) {
   const imgEl  = card.querySelector('.project-img');
@@ -65,12 +70,26 @@ function openModal(card) {
 
   modal.classList.add('open');
   lenis.stop();
+  history.pushState({ modal: true }, '');
+  modalHistoryPushed = true;
 }
 
 function closeModal() {
   modal.classList.remove('open');
   lenis.start();
+  if (modalHistoryPushed) {
+    modalHistoryPushed = false;
+    history.back();
+  }
 }
+
+window.addEventListener('popstate', () => {
+  if (modal.classList.contains('open')) {
+    modal.classList.remove('open');
+    lenis.start();
+    modalHistoryPushed = false;
+  }
+});
 
 document.querySelectorAll('.project-card').forEach((card) => {
   card.addEventListener('click', () => openModal(card));
@@ -79,6 +98,22 @@ document.querySelectorAll('.project-card').forEach((card) => {
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+// ── Mobile nav toggle ──
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks  = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.textContent = isOpen ? '[close]' : '[menu]';
+});
+
+navLinks.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.textContent = '[menu]';
+  });
+});
 
 // ── Anchor scroll ──
 document.querySelectorAll('a[href^="#"]:not(.modal-link):not(.modal-github)').forEach((anchor) => {

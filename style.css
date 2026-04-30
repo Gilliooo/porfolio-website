@@ -159,6 +159,22 @@ nav {
   color: var(--bright);
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dim);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  padding: 0;
+  transition: color 0.15s;
+  cursor: none !important;
+}
+
+.nav-toggle:hover {
+  color: var(--bright);
+}
+
 /* ─── SECTIONS ─── */
 section {
   padding: 72px var(--pad-x);
@@ -183,6 +199,7 @@ section {
   color: var(--dim);
   line-height: 1.6;
   max-width: 480px;
+  margin-bottom: 72px;
 }
 
 .about-layout {
@@ -503,6 +520,10 @@ section {
     padding: 48px var(--pad-x);
   }
 
+  p {
+    text-align: justify;
+  }
+
   .section-title {
     font-size: 1.35rem;
     margin-bottom: 20px;
@@ -510,19 +531,41 @@ section {
 
   /* Nav */
   nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
   }
 
   .nav-links {
-    gap: 16px;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 12px;
+    margin-top: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 0;
+    width: fit-content;
   }
 
   /* About */
   #about {
     min-height: auto;
     padding-top: 40px;
+  }
+
+  .about-tagline {
+    margin-bottom: 40px;
   }
 
   .about-layout {
@@ -536,7 +579,16 @@ section {
   }
 
   .about-desc {
-    text-align: left;
+    text-align: justify;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .cv-btn {
+    display: block;
+    text-align: center;
   }
 
   .cv-btn {
@@ -551,7 +603,7 @@ section {
   }
 
   .project-card p {
-    text-align: left;
+    text-align: justify;
   }
 
   /* Experiences */
@@ -565,7 +617,7 @@ section {
 
   /* Publication */
   .pub-abstract {
-    text-align: left;
+    text-align: justify;
   }
 
   /* Sidebar */
