@@ -76,6 +76,11 @@
   color: #111111;
 }
 
+:focus-visible {
+  outline: 1px solid var(--border);
+  outline-offset: 3px;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -215,6 +220,13 @@ section {
   min-width: 0;
 }
 
+.about-hook {
+  font-size: 12px;
+  color: var(--dim);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
 .about-desc {
   text-align: justify;
   line-height: 1.8;
@@ -344,6 +356,25 @@ section {
 .project-card p {
   text-align: justify;
   line-height: 1.75;
+}
+
+.project-tags,
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.modal-tags {
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-size: 11px;
+  color: var(--dim);
+  border: 1px solid #333;
+  padding: 2px 8px;
 }
 
 /* ─── PROJECT SIDEBAR ─── */

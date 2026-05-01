@@ -42,11 +42,17 @@ const modal        = document.getElementById('project-modal');
 const modalTitle   = modal.querySelector('.modal-title');
 const modalMedia   = modal.querySelector('.modal-media');
 const modalDesc    = modal.querySelector('.modal-desc');
+const modalTagsEl  = modal.querySelector('.modal-tags');
 const modalLink    = modal.querySelector('.modal-link');
 const modalGithub  = modal.querySelector('.modal-github');
 const modalClose   = modal.querySelector('.modal-close');
 
 let modalHistoryPushed = false;
+let modalPreviousFocus = null;
+
+function getModalFocusable() {
+  return [...modal.querySelectorAll('button, a[href]:not([href="#"]), [tabindex]:not([tabindex="-1"])')];
+}
 
 function openModal(card) {
   const imgEl  = card.querySelector('.project-img');
@@ -54,9 +60,11 @@ function openModal(card) {
   const desc   = card.querySelector('p').textContent;
   const link   = card.dataset.link;
   const github = card.dataset.github;
+  const tags   = [...card.querySelectorAll('.tag')].map(t => t.textContent);
 
   modalTitle.textContent = title;
   modalDesc.textContent  = desc;
+  modalTagsEl.innerHTML  = tags.map(t => `<span class="tag">${t}</span>`).join('');
 
   modalLink.href           = link || '#';
   modalLink.style.display  = link ? '' : 'none';
@@ -68,8 +76,10 @@ function openModal(card) {
     ? `<img src="${imgEl.src}" alt="${imgEl.alt}" />`
     : `<div class="img-placeholder"></div>`;
 
+  modalPreviousFocus = document.activeElement;
   modal.classList.add('open');
   lenis.stop();
+  modalClose.focus();
   history.pushState({ modal: true }, '');
   modalHistoryPushed = true;
 }
@@ -77,6 +87,7 @@ function openModal(card) {
 function closeModal() {
   modal.classList.remove('open');
   lenis.start();
+  if (modalPreviousFocus) { modalPreviousFocus.focus(); modalPreviousFocus = null; }
   if (modalHistoryPushed) {
     modalHistoryPushed = false;
     history.back();
@@ -97,7 +108,18 @@ document.querySelectorAll('.project-card').forEach((card) => {
 
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key !== 'Tab' || !modal.classList.contains('open')) return;
+  const focusable = getModalFocusable();
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+  }
+});
 
 // ── Mobile nav toggle ──
 const navToggle = document.querySelector('.nav-toggle');

@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bill Grandy Tunjung</title>
+  <meta name="description" content="Bill Grandy Tunjung — published IEEE researcher and CS student at Binus University specialising in machine learning, NLP, and computer vision." />
+  <meta property="og:title" content="Bill Grandy Tunjung" />
+  <meta property="og:description" content="Published IEEE researcher and CS student specialising in machine learning, NLP, and computer vision." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="image/gillnew2softer_proc.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23090909'/><text x='3' y='24' font-family='monospace' font-size='19' fill='%23c8c8c8'>%3E_</text></svg>" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-mono/index.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,7 +24,7 @@
   </div>
 
   <nav>
-    <a href="#about" class="nav-brand">./gillio_portfolio</a>
+    <a href="#about" class="nav-brand">billgrandytunjung</a>
     <button class="nav-toggle" aria-label="Toggle menu">[menu]</button>
     <div class="nav-links">
       <a href="#projects">./projects</a>
@@ -32,8 +40,9 @@
     <div class="about-layout">
       <div class="about-text">
         <h2 class="section-title">./about_me</h2>
-        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong> with hands-on experience in <strong>machine
-        learning, data mining, NLP, and computer vision</strong>. I build end-to-end ML pipelines that turn unstructured data into insights.
+        <p class="about-hook">ML/AI &middot; Data Scientist &middot; Published IEEE Researcher</p>
+        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong> with hands on experience in <strong>machine
+        learning, data mining, NLP, and computer vision</strong>. I build machine learning pipelines that turn unstructured data into insights.
         Throughout my academic experience, I have collaborated on team projects spanning handwriting recognition, professional profile
         classification, and IoT hardware development, contributing across the full project lifecycle from ideation to deployment
         and publication.</p>
@@ -52,7 +61,7 @@
 
   <!-- TECH STACK -->
   <section id="tech-stack">
-    <h2 class="section-title">./tech_stack</h2>
+    <h2 class="section-title">./technologies</h2>
     <div class="stack-grid">
 
       <div class="stack-group">
@@ -105,39 +114,62 @@
     <div class="projects-grid">
 
       <div class="project-card" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor">
-        <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" />
+        <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" loading="lazy" />
         <h3>High-Profile LinkedIn Predictor</h3>
         <p>A web application that analyzes LinkedIn profile text to predict whether someone holds a high-level leadership position.
         It uses DistilBERT (via the Hugging Face transformers library) to extract meaning from unstructured career text and
-        passes it through a trained binary classifier to return a confidence score. Built with Python, PyTorch, and Streamlit.</p>
+        passes it through a trained binary classifier to return a confidence score.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Hugging Face</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+        </div>
       </div>
 
       <div class="project-card" data-link="https://gilliooo.github.io/Gallerymaker-App/" data-github="https://github.com/Gilliooo/Gallerymaker-App">
-        <img class="project-img" src="image/Gallery.png" alt="GalleryMaker - Image Layout Tool" />
+        <img class="project-img" src="image/Gallery.png" alt="GalleryMaker - Image Layout Tool" loading="lazy" />
         <h3>GalleryMaker - Collage Layout Tool</h3>
         <p>A browser-based collage editor for composing gallery-style image layouts directly in the browser. Users arrange photos
-        across customizable grid presets, tune gaps and backgrounds, then export the finished layout as a JPG.
-      
-      Built with JavaScript, HTML/CSS, and html2canvas.</p>
+        across customizable grid presets, tune gaps and backgrounds, then export the finished layout as a JPG.</p>
+        <div class="project-tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">html2canvas</span>
+        </div>
       </div>
 
-      <div class="project-card" data-link="#">
-        <img class="project-img" src="image/layoutparser.png" alt="Handwriting To Document Parser" />
+      <div class="project-card" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision">
+        <img class="project-img" src="image/layoutparser.png" alt="Handwriting To Document Parser" loading="lazy" />
         <h3>Handwriting To Text Parser</h3>
         <p>Upload a photo of handwritten notes and get clean, structured Markdown back. The app uses a YOLO-based document layout
         model to identify regions like titles, lists, and paragraphs, then runs a custom-trained character recognition model on
-        each region to transcribe the handwriting.
-        
-        Built with Python, TensorFlow, OpenCV, and Streamlit.</p>
+        each region to transcribe the handwriting.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">TensorFlow/Keras</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Streamlit</span>
+        </div>
       </div>
 
       <div class="project-card" data-github="https://github.com/Gilliooo/LandscapeClassifier">
-        <img class="project-img" src="image/landscapeclassifier.png" alt="Landscape Classifier" />
+        <img class="project-img" src="image/landscapeclassifier.png" alt="Landscape Classifier" loading="lazy" />
         <h3>Landscape Classifier</h3>
         <p>A web application that analyzes uploaded photos to predict the type of landscape shown. It uses a custom-trained
         Convolutional Neural Network (via Keras/TensorFlow) to extract visual features from images and passes them through a
-        trained multi-class classifier to return the top 3 predictions with confidence scores. Built with Python, Flask, and a
-        vanilla HTML/CSS/JS frontend.</p>
+        trained multi-class classifier to return the top 3 predictions with confidence scores.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">TensorFlow/Keras</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
       </div>
 <!-- 
       <div class="project-card" data-link="#">
@@ -196,14 +228,15 @@
   </section> -->
 
   <!-- PROJECT MODAL -->
-  <div id="project-modal" class="modal-overlay">
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box">
       <div class="modal-header">
-        <h3 class="modal-title"></h3>
+        <h3 class="modal-title" id="modal-title"></h3>
         <button class="modal-close">[close]</button>
       </div>
       <div class="modal-media"></div>
       <p class="modal-desc"></p>
+      <div class="modal-tags"></div>
       <div class="modal-actions">
         <a href="#" class="modal-link" target="_blank" rel="noopener">[view_project]</a>
         <a href="#" class="modal-github" target="_blank" rel="noopener">[github]</a>
