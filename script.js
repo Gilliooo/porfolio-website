@@ -38,10 +38,17 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 // ── Project modal ──
-const modal        = document.getElementById('project-modal');
-const modalBox     = modal.querySelector('.modal-box');
+const modal      = document.getElementById('project-modal');
+const modalBox   = modal.querySelector('.modal-box');
+const modalTitle = modal.querySelector('.modal-title');
+const modalMedia = modal.querySelector('.modal-media');
+const modalDesc  = modal.querySelector('.modal-desc');
+const modalTagsEl = modal.querySelector('.modal-tags');
+const modalLink  = modal.querySelector('.modal-link');
+const modalGithub = modal.querySelector('.modal-github');
+const modalClose = modal.querySelector('.modal-close');
 
-// Intercept wheel events before Lenis (capture phase) and smooth-scroll the modal with GSAP
+// PC: intercept wheel before Lenis (capture phase) and smooth-scroll modal with GSAP
 let modalScrollTarget = 0;
 
 window.addEventListener('wheel', (e) => {
@@ -52,17 +59,26 @@ window.addEventListener('wheel', (e) => {
   gsap.to(modalBox, { scrollTop: modalScrollTarget, duration: 0.5, ease: 'power3.out', overwrite: true });
 }, { passive: false, capture: true });
 
-// Prevent the backdrop from scrolling the page on mobile while the modal is open
+// Mobile: handle touch directly on modalBox and stop propagation so Lenis never sees it
+let touchStartY = 0;
+
+modalBox.addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY;
+  e.stopPropagation();
+}, { passive: true });
+
+modalBox.addEventListener('touchmove', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  const dy = touchStartY - e.touches[0].clientY;
+  touchStartY = e.touches[0].clientY;
+  modalBox.scrollTop += dy;
+}, { passive: false });
+
+// Prevent the dark backdrop from scrolling the page on mobile
 modal.addEventListener('touchmove', (e) => {
   if (!modalBox.contains(e.target)) e.preventDefault();
 }, { passive: false });
-const modalTitle   = modal.querySelector('.modal-title');
-const modalMedia   = modal.querySelector('.modal-media');
-const modalDesc    = modal.querySelector('.modal-desc');
-const modalTagsEl  = modal.querySelector('.modal-tags');
-const modalLink    = modal.querySelector('.modal-link');
-const modalGithub  = modal.querySelector('.modal-github');
-const modalClose   = modal.querySelector('.modal-close');
 
 let modalHistoryPushed = false;
 let modalPreviousFocus = null;
@@ -83,8 +99,8 @@ function openModal(card) {
   modalDesc.textContent  = desc;
   modalTagsEl.innerHTML  = tags.map(t => `<span class="tag">${t}</span>`).join('');
 
-  modalLink.href           = link || '#';
-  modalLink.style.display  = link ? '' : 'none';
+  modalLink.href          = link || '#';
+  modalLink.style.display = link ? '' : 'none';
 
   modalGithub.href          = github || '#';
   modalGithub.style.display = github ? '' : 'none';
@@ -97,7 +113,6 @@ function openModal(card) {
   modalScrollTarget  = 0;
   modalPreviousFocus = document.activeElement;
   modal.classList.add('open');
-  document.documentElement.classList.add('modal-open');
   lenis.stop();
   history.pushState({ modal: true }, '');
   modalHistoryPushed = true;
@@ -105,7 +120,6 @@ function openModal(card) {
 
 function closeModal() {
   modal.classList.remove('open');
-  document.documentElement.classList.remove('modal-open');
   lenis.start();
   if (modalPreviousFocus) { modalPreviousFocus.focus(); modalPreviousFocus = null; }
   if (modalHistoryPushed) {
@@ -117,7 +131,6 @@ function closeModal() {
 window.addEventListener('popstate', () => {
   if (modal.classList.contains('open')) {
     modal.classList.remove('open');
-    document.documentElement.classList.remove('modal-open');
     lenis.start();
     modalHistoryPushed = false;
   }

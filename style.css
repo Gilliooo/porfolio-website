@@ -94,10 +94,6 @@ html.lenis body {
   overflow: hidden;
 }
 
-.lenis.lenis-stopped.modal-open {
-  overflow: auto;
-}
-
 html {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
