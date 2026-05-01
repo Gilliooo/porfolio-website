@@ -96,6 +96,24 @@ html.lenis body {
 
 html {
   scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dim);
 }
 
 body {
@@ -400,8 +418,10 @@ section {
   width: min(480px, 90vw);
   background: var(--bg);
   border-left: 1px solid var(--border);
-  padding: 48px 36px;
-  overflow-y: auto;
+  padding: 48px 36px 64px;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

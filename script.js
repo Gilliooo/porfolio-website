@@ -39,6 +39,18 @@ gsap.ticker.lagSmoothing(0);
 
 // ── Project modal ──
 const modal        = document.getElementById('project-modal');
+const modalBox     = modal.querySelector('.modal-box');
+
+// Intercept wheel events before Lenis (capture phase) and smooth-scroll the modal with GSAP
+let modalScrollTarget = 0;
+
+window.addEventListener('wheel', (e) => {
+  if (!modal.classList.contains('open')) return;
+  e.preventDefault();
+  const maxScroll = modalBox.scrollHeight - modalBox.clientHeight;
+  modalScrollTarget = Math.max(0, Math.min(modalScrollTarget + e.deltaY, maxScroll));
+  gsap.to(modalBox, { scrollTop: modalScrollTarget, duration: 0.5, ease: 'power3.out', overwrite: true });
+}, { passive: false, capture: true });
 const modalTitle   = modal.querySelector('.modal-title');
 const modalMedia   = modal.querySelector('.modal-media');
 const modalDesc    = modal.querySelector('.modal-desc');
@@ -76,10 +88,11 @@ function openModal(card) {
     ? `<img src="${imgEl.src}" alt="${imgEl.alt}" />`
     : `<div class="img-placeholder"></div>`;
 
+  modalBox.scrollTop = 0;
+  modalScrollTarget  = 0;
   modalPreviousFocus = document.activeElement;
   modal.classList.add('open');
   lenis.stop();
-  modalClose.focus();
   history.pushState({ modal: true }, '');
   modalHistoryPushed = true;
 }
