@@ -52,23 +52,10 @@ window.addEventListener('wheel', (e) => {
   gsap.to(modalBox, { scrollTop: modalScrollTarget, duration: 0.5, ease: 'power3.out', overwrite: true });
 }, { passive: false, capture: true });
 
-// Intercept touch events before Lenis so the modal scrolls on mobile
-let touchStartY    = 0;
-let touchingModal  = false;
-
-window.addEventListener('touchstart', (e) => {
-  if (!modal.classList.contains('open')) return;
-  touchingModal = modalBox.contains(e.target);
-  if (touchingModal) touchStartY = e.touches[0].clientY;
-}, { passive: true, capture: true });
-
-window.addEventListener('touchmove', (e) => {
-  if (!modal.classList.contains('open') || !touchingModal) return;
-  e.preventDefault();
-  const dy = touchStartY - e.touches[0].clientY;
-  touchStartY = e.touches[0].clientY;
-  modalBox.scrollTop += dy;
-}, { passive: false, capture: true });
+// Prevent the backdrop from scrolling the page on mobile while the modal is open
+modal.addEventListener('touchmove', (e) => {
+  if (!modalBox.contains(e.target)) e.preventDefault();
+}, { passive: false });
 const modalTitle   = modal.querySelector('.modal-title');
 const modalMedia   = modal.querySelector('.modal-media');
 const modalDesc    = modal.querySelector('.modal-desc');
@@ -110,6 +97,7 @@ function openModal(card) {
   modalScrollTarget  = 0;
   modalPreviousFocus = document.activeElement;
   modal.classList.add('open');
+  document.documentElement.classList.add('modal-open');
   lenis.stop();
   history.pushState({ modal: true }, '');
   modalHistoryPushed = true;
@@ -117,6 +105,7 @@ function openModal(card) {
 
 function closeModal() {
   modal.classList.remove('open');
+  document.documentElement.classList.remove('modal-open');
   lenis.start();
   if (modalPreviousFocus) { modalPreviousFocus.focus(); modalPreviousFocus = null; }
   if (modalHistoryPushed) {
@@ -128,6 +117,7 @@ function closeModal() {
 window.addEventListener('popstate', () => {
   if (modal.classList.contains('open')) {
     modal.classList.remove('open');
+    document.documentElement.classList.remove('modal-open');
     lenis.start();
     modalHistoryPushed = false;
   }
