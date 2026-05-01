@@ -51,6 +51,24 @@ window.addEventListener('wheel', (e) => {
   modalScrollTarget = Math.max(0, Math.min(modalScrollTarget + e.deltaY, maxScroll));
   gsap.to(modalBox, { scrollTop: modalScrollTarget, duration: 0.5, ease: 'power3.out', overwrite: true });
 }, { passive: false, capture: true });
+
+// Intercept touch events before Lenis so the modal scrolls on mobile
+let touchStartY    = 0;
+let touchingModal  = false;
+
+window.addEventListener('touchstart', (e) => {
+  if (!modal.classList.contains('open')) return;
+  touchingModal = modalBox.contains(e.target);
+  if (touchingModal) touchStartY = e.touches[0].clientY;
+}, { passive: true, capture: true });
+
+window.addEventListener('touchmove', (e) => {
+  if (!modal.classList.contains('open') || !touchingModal) return;
+  e.preventDefault();
+  const dy = touchStartY - e.touches[0].clientY;
+  touchStartY = e.touches[0].clientY;
+  modalBox.scrollTop += dy;
+}, { passive: false, capture: true });
 const modalTitle   = modal.querySelector('.modal-title');
 const modalMedia   = modal.querySelector('.modal-media');
 const modalDesc    = modal.querySelector('.modal-desc');
