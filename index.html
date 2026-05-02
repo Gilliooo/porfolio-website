@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bill Grandy Tunjung</title>
-  <meta name="description" content="Bill Grandy Tunjung — published IEEE researcher and CS student at Binus University specialising in machine learning, NLP, and computer vision." />
+  <meta name="description" content="Bill Grandy Tunjung — published IEEE researcher and CS student at Binus University, on exchange at Hanyang University South Korea. Specialising in machine learning, NLP, and computer vision." />
   <meta property="og:title" content="Bill Grandy Tunjung" />
-  <meta property="og:description" content="Published IEEE researcher and CS student specialising in machine learning, NLP, and computer vision." />
+  <meta property="og:description" content="Published IEEE researcher and CS student specialising in machine learning, NLP, and computer vision. Currently on exchange at Hanyang University, South Korea." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="image/gillnew2softer_proc.jpg" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23090909'/><text x='3' y='24' font-family='monospace' font-size='19' fill='%23c8c8c8'>%3E_</text></svg>" />
@@ -29,7 +29,8 @@
     <div class="nav-links">
       <a href="#projects">./projects</a>
       <a href="#publication">./publication</a>
-      <!-- <a href="#experiences">./experiences</a> -->
+      <a href="#education">./education</a>
+      <a href="#experiences">./experiences</a>
 
     </div>
   </nav>
@@ -41,11 +42,7 @@
       <div class="about-text">
         <h2 class="section-title">./about_me</h2>
         <p class="about-hook">ML/AI &middot; Data Scientist &middot; Published IEEE Researcher</p>
-        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong> with hands on experience in <strong>machine
-        learning, data mining, NLP, and computer vision</strong>. I build machine learning pipelines that turn unstructured data into insights.
-        Throughout my academic experience, I have collaborated on team projects spanning handwriting recognition, professional profile
-        classification, and IoT hardware development, contributing across the full project lifecycle from ideation to deployment
-        and publication.</p>
+        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong>, on exchange at <strong>Hanyang University, South Korea</strong> until June 2026. I have hands on experience in <strong>machine learning, data mining, NLP, and computer vision</strong>, building ML pipelines that turn unstructured data into actionable insights. I worked on projects that span handwriting recognition, professional profile classification, and IoT hardware development, contributing across the full lifecycle from ideation to deployment and publication.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/bill-tunjung/" class="social-link">[linkedin]</a>
           <a href="https://github.com/Gilliooo" class="social-link">[github]</a>
@@ -69,8 +66,10 @@
         <ul class="stack-list">
           <li>Python</li>
           <li>JavaScript</li>
-          <li>HTML / CSS</li>
+          <li>HTML/CSS</li>
           <li>SQL</li>
+          <li>C/C++</li>
+          <li>R</li>
         </ul>
       </div>
 
@@ -78,7 +77,7 @@
         <p class="stack-label">[ml_ai]</p>
         <ul class="stack-list">
           <li>PyTorch</li>
-          <li>TensorFlow / Keras</li>
+          <li>TensorFlow/Keras</li>
           <li>Scikit-learn</li>
           <li>Hugging Face</li>
           <li>OpenCV</li>
@@ -86,12 +85,14 @@
       </div>
 
       <div class="stack-group">
-        <p class="stack-label">[data]</p>
+        <p class="stack-label">[data_analytics]</p>
         <ul class="stack-list">
           <li>Pandas</li>
           <li>NumPy</li>
           <li>Matplotlib</li>
           <li>Seaborn</li>
+          <li>RapidMiner</li>
+          <li>Excel</li>
         </ul>
       </div>
 
@@ -100,8 +101,20 @@
         <ul class="stack-list">
           <li>Streamlit</li>
           <li>Flask</li>
-          <li>Git / GitHub</li>
+          <li>Node.js</li>
+          <li>Git/GitHub</li>
           <li>Jupyter</li>
+        </ul>
+      </div>
+
+      <div class="stack-group">
+        <p class="stack-label">[design_media]</p>
+        <ul class="stack-list">
+          <li>Figma</li>
+          <li>Canva</li>
+          <li>Adobe Illustrator</li>
+          <li>Adobe Premiere</li>
+          <li>DaVinci Resolve</li>
         </ul>
       </div>
 
@@ -113,7 +126,7 @@
     <h2 class="section-title">./projects</h2>
     <div class="projects-grid">
 
-      <div class="project-card" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor">
+      <div class="project-card" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="The model was trained on 1,800 LinkedIn profiles. Raw profile fields which includes summaries, job titles, and descriptions  were encoded into 768-dimensional feature vectors using BERT embeddings, then compressed with PCA before being passed to classifiers. The pipeline handled null values and used regex-based labeling to define what counts as a high-profile role. Random Forest, Logistic Regression, Naive Bayes, and SVC were all evaluated, with Logistic Regression coming out on top at 70.7% accuracy.">
         <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" loading="lazy" />
         <h3>High-Profile LinkedIn Predictor</h3>
         <p>A web application that analyzes LinkedIn profile text to predict whether someone holds a high-level leadership position.
@@ -143,9 +156,9 @@
         </div>
       </div>
 
-      <div class="project-card" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision">
-        <img class="project-img" src="image/layoutparser.png" alt="Handwriting To Document Parser" loading="lazy" />
-        <h3>Handwriting To Text Parser</h3>
+      <div class="project-card" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision" data-detail="The pipeline first uses a YOLO-based layout model to segment the page into regions which are titles, lists, and paragraphs before any text recognition happens. Each region is then passed individually to a TensorFlow/Keras character recognition model trained on handwritten datasets, with PaddleOCR's DBNet handling detection on noisier inputs. This per region approach is what allows the output to be reconstructed as structured Markdown rather than a flat string of text. The character recognition model achieved 65.9% accuracy on noisy real-world datasets. However the execution is still not perfect and struggles with very messy handwriting or unusual layouts, which is an area for future improvement.">
+        <img class="project-img" src="image/layoutparser.png" alt="Handwriting OCR to Text" loading="lazy" />
+        <h3>Handwriting OCR to Text</h3>
         <p>Upload a photo of handwritten notes and get clean, structured Markdown back. The app uses a YOLO-based document layout
         model to identify regions like titles, lists, and paragraphs, then runs a custom-trained character recognition model on
         each region to transcribe the handwriting.</p>
@@ -200,32 +213,73 @@
     </div>
   </section>
 
-  <!-- EXPERIENCES -->
-  <!-- <section id="experiences">
-    <h2 class="section-title">./experiences</h2>
-    <div class="experiences-layout">
-  
-      <div class="experiences-text">
-        <div class="experience-entry">
-          <p class="experience-title">Binus Entrepreneur (B-Preneur) &gt; Coordinator Of Creative Media</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">./education</h2>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <div>
+          <p class="edu-degree">Bachelor's of Computer Science</p>
+          <p class="edu-institution">Bina Nusantara University &mdash; GPA 3.77 / 4.00</p>
         </div>
-        <div class="experience-entry">
-          <p class="experience-title">Teach For Indonesia Student Community (TFISC) &gt; Coordinator Of Creative Media</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <p>&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
+        <p class="edu-date">Sep 2023 &mdash; Present</p>
       </div>
-  
-      <div class="experiences-image">
-        <div class="img-placeholder"></div>
-      </div>
-  
+      <ul class="edu-list">
+        <li>Studied AI/ML engineering, data mining, and database technologies using Python, RStudio, RapidMiner, Excel, and SQL</li>
+        <li>Published research paper in IEEE's 2025 6th International Conference on Artificial Intelligence and Data Sciences (AiDAS)</li>
+        <li>Relevant Courses: Data Mining, Database Technology, Scientific Computing, Machine Learning, Artificial Intelligence, Basic Statistics</li>
+      </ul>
     </div>
-  </section> -->
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <div>
+          <p class="edu-degree">Exchange Student</p>
+          <p class="edu-institution">Hanyang University, South Korea</p>
+        </div>
+        <p class="edu-date">Mar 2026 &mdash; Jun 2026</p>
+      </div>
+      <ul class="edu-list">
+        <li>Spring semester exchange program for computer science courses using Python</li>
+        <li>Relevant Courses: Cultural Industry &amp; Data Analysis, Information Security, Computer Graphics</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section id="experiences">
+    <h2 class="section-title">./experiences</h2>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <div>
+          <p class="edu-degree">Technical Officer</p>
+          <p class="edu-institution">BioCard</p>
+        </div>
+        <p class="edu-date">Sep 2025 &mdash; Jan 2026</p>
+      </div>
+      <ul class="edu-list">
+        <li>Researched hardware components and development approach for a university IoT digital ID card project</li>
+        <li>Designed and built a physical Arduino-based smart ID card; received excellent reviews from 30 respondents at a university business festival</li>
+        <li>Conducted code and hardware quality assurance to ensure full product functionality prior to festival deployment</li>
+      </ul>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <div>
+          <p class="edu-degree">Coordinator of Creative Media</p>
+          <p class="edu-institution">B-Preneur (Binus Entrepreneur)</p>
+        </div>
+        <p class="edu-date">Mar 2024 &mdash; Feb 2026</p>
+      </div>
+      <ul class="edu-list">
+        <li>Increased video interaction in Instagram Reels by 50% compared to previous year</li>
+        <li>Led the development and execution of multimedia campaigns to enhance organization visibility on campus, contributing to B-Preneur winning Best Organization of BINUS in academic year 2025/2026</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- PROJECT MODAL -->
   <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -236,6 +290,7 @@
       </div>
       <div class="modal-media"></div>
       <p class="modal-desc"></p>
+      <p class="modal-detail"></p>
       <div class="modal-tags"></div>
       <div class="modal-actions">
         <a href="#" class="modal-link" target="_blank" rel="noopener">[view_project]</a>

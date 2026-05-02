@@ -42,7 +42,8 @@ const modal      = document.getElementById('project-modal');
 const modalBox   = modal.querySelector('.modal-box');
 const modalTitle = modal.querySelector('.modal-title');
 const modalMedia = modal.querySelector('.modal-media');
-const modalDesc  = modal.querySelector('.modal-desc');
+const modalDesc   = modal.querySelector('.modal-desc');
+const modalDetail = modal.querySelector('.modal-detail');
 const modalTagsEl = modal.querySelector('.modal-tags');
 const modalLink  = modal.querySelector('.modal-link');
 const modalGithub = modal.querySelector('.modal-github');
@@ -91,12 +92,15 @@ function openModal(card) {
   const imgEl  = card.querySelector('.project-img');
   const title  = card.querySelector('h3').textContent;
   const desc   = card.querySelector('p').textContent;
+  const detail = card.dataset.detail || '';
   const link   = card.dataset.link;
   const github = card.dataset.github;
   const tags   = [...card.querySelectorAll('.tag')].map(t => t.textContent);
 
   modalTitle.textContent = title;
-  modalDesc.textContent  = desc;
+  modalDesc.textContent         = desc;
+  modalDetail.textContent       = detail;
+  modalDetail.style.display     = detail ? '' : 'none';
   modalTagsEl.innerHTML  = tags.map(t => `<span class="tag">${t}</span>`).join('');
 
   modalLink.href          = link || '#';
