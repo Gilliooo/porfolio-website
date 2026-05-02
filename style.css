@@ -463,8 +463,7 @@ section {
 
 .modal-media img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
   border: 1px solid var(--border);
   display: block;
   margin-bottom: 24px;
