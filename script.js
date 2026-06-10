@@ -95,6 +95,7 @@ function openModal(card) {
   const detail = card.dataset.detail || '';
   const link   = card.dataset.link;
   const github = card.dataset.github;
+  const gallery = card.dataset.gallery ? card.dataset.gallery.split(',') : null;
   const tags   = [...card.querySelectorAll('.tag')].map(t => t.textContent);
 
   modalTitle.textContent = title;
@@ -109,9 +110,32 @@ function openModal(card) {
   modalGithub.href          = github || '#';
   modalGithub.style.display = github ? '' : 'none';
 
-  modalMedia.innerHTML = imgEl
-    ? `<img src="${imgEl.src}" alt="${imgEl.alt}" />`
-    : `<div class="img-placeholder"></div>`;
+  if (gallery && gallery.length > 0) {
+    let idx = 0;
+    const render = () => {
+      modalMedia.querySelector('.modal-gallery-track img').src = gallery[idx];
+      modalMedia.querySelector('.modal-gallery-counter').textContent =
+        `[${idx + 1}/${gallery.length}]`;
+    };
+    modalMedia.innerHTML = `
+      <div class="modal-gallery">
+        <div class="modal-gallery-track">
+          <img src="${gallery[0]}" alt="${title} screenshot 1" />
+        </div>
+        <div class="modal-gallery-controls">
+          <button class="modal-gallery-btn">[prev]</button>
+          <span class="modal-gallery-counter">[1/${gallery.length}]</span>
+          <button class="modal-gallery-btn">[next]</button>
+        </div>
+      </div>`;
+    const [prevBtn, nextBtn] = modalMedia.querySelectorAll('.modal-gallery-btn');
+    prevBtn.addEventListener('click', () => { idx = (idx - 1 + gallery.length) % gallery.length; render(); });
+    nextBtn.addEventListener('click', () => { idx = (idx + 1) % gallery.length; render(); });
+  } else {
+    modalMedia.innerHTML = imgEl
+      ? `<img src="${imgEl.src}" alt="${imgEl.alt}" />`
+      : `<div class="img-placeholder"></div>`;
+  }
 
   modalBox.scrollTop = 0;
   modalScrollTarget  = 0;

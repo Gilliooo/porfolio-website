@@ -469,6 +469,53 @@ section {
   margin-bottom: 24px;
 }
 
+/* ─── MODAL GALLERY ─── */
+.modal-gallery {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.modal-gallery-track {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.modal-gallery-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.modal-gallery-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.modal-gallery-btn:hover {
+  color: var(--bright);
+  border-color: var(--bright);
+}
+
+.modal-gallery-counter {
+  font-size: 0.8rem;
+  color: var(--dim);
+}
+
 .modal-media .img-placeholder {
   width: 100%;
   height: 220px;
