@@ -70,6 +70,7 @@
   --border: #777777;
   --line: #1e1e1e;
   --accent: #7ee787;
+  --accent-bright: #b6f7bd;
   --pad-x: 5%;
 }
 
@@ -514,9 +515,37 @@ section {
 }
 
 .project-card {
+  position: relative;
   transition: background-color 0.2s, transform 0.25s, box-shadow 0.25s;
   padding: 10px;
   margin: -10px;
+}
+
+/* ─── LIVE WEBSITE BADGE ─── */
+.live-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  padding: 4px 9px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.live-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0a0a0a;
 }
 
 .project-card:hover {
@@ -963,6 +992,75 @@ section {
   .hero-name::after {
     animation: none;
   }
+}
+
+/* ─── BRACKETED LINKS (green) ─── */
+.social-link,
+.pub-link,
+.footer-links a,
+.footer-top,
+.nav-toggle,
+.modal-close,
+.modal-link,
+.modal-github,
+.modal-gallery-btn {
+  color: var(--accent);
+}
+
+.social-link:hover,
+.pub-link:hover,
+.footer-links a:hover,
+.footer-top:hover,
+.nav-toggle:hover,
+.modal-close:hover,
+.modal-link:hover,
+.modal-github:hover {
+  color: var(--accent-bright);
+}
+
+.modal-gallery-btn {
+  border-color: var(--accent);
+}
+
+.modal-gallery-btn:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent-bright);
+}
+
+/* prompt ">" indicator on bracketed links */
+.social-link::before,
+.pub-link::before,
+.footer-links a::before,
+.footer-top::before,
+.modal-link::before,
+.modal-github::before {
+  color: var(--accent);
+}
+
+/* download CV button — fully green */
+.cv-btn {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cv-btn:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0a;
+}
+
+/* custom cursor turns green over bracketed links */
+#cursor.is-green {
+  mix-blend-mode: normal;
+}
+
+#cursor.is-green .cursor-pointer {
+  color: var(--accent);
+}
+
+#cursor.is-green .cursor-h,
+#cursor.is-green .cursor-v {
+  background-color: var(--accent);
 }
 
 /* ─── RESPONSIVE ─── */
