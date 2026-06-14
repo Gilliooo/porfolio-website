@@ -50,14 +50,11 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
 
   const clickables = 'a, button, [role="button"], input, select, textarea, label, .project-card';
-  const greenLinks = '.social-link, .cv-btn, .pub-link, .footer-links a, .footer-top, .nav-toggle, .modal-close, .modal-link, .modal-github, .modal-gallery-btn';
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(clickables)) cursor.classList.add('is-hovering');
-    if (e.target.closest(greenLinks)) cursor.classList.add('is-green');
   });
   document.addEventListener('mouseout', (e) => {
     if (e.target.closest(clickables)) cursor.classList.remove('is-hovering');
-    if (e.target.closest(greenLinks)) cursor.classList.remove('is-green');
   });
 }
 

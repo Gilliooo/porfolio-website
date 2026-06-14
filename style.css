@@ -383,9 +383,15 @@ section {
   color: var(--bright);
 }
 
+.cv-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
 .cv-btn {
   display: inline-block;
-  margin-top: 28px;
   font-size: 1rem;
   color: var(--text);
   text-decoration: none;
@@ -1049,20 +1055,6 @@ section {
   color: #0a0a0a;
 }
 
-/* custom cursor turns green over bracketed links */
-#cursor.is-green {
-  mix-blend-mode: normal;
-}
-
-#cursor.is-green .cursor-pointer {
-  color: var(--accent);
-}
-
-#cursor.is-green .cursor-h,
-#cursor.is-green .cursor-v {
-  background-color: var(--accent);
-}
-
 /* ─── RESPONSIVE ─── */
 
 /* Touch devices — hide custom cursor */
@@ -1171,12 +1163,13 @@ section {
     justify-content: center;
   }
 
-  .cv-btn {
-    display: block;
-    text-align: center;
+  .cv-actions {
+    flex-direction: column;
   }
 
   .cv-btn {
+    display: block;
+    text-align: center;
     font-size: 0.9rem;
     padding: 12px 20px;
   }
