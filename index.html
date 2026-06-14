@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-mono/index.css" />
   <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
 
@@ -37,12 +38,21 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <p class="about-tagline">contact me @ billgrandytunjung@gmail.com</p>
+    <div class="about-bar">
+      <span class="status-pill"><span class="status-dot"></span>available for 2026 roles</span>
+      <a href="mailto:billgrandytunjung@gmail.com" class="about-tagline">billgrandytunjung@gmail.com</a>
+    </div>
     <div class="about-layout">
-      <div class="about-text">
-        <h2 class="section-title">./about_me</h2>
+      <div class="about-text reveal">
+        <p class="hero-prompt"><span class="hero-path">~/portfolio</span> $ whoami</p>
+        <h1 class="hero-name">Bill Grandy Tunjung</h1>
         <p class="about-hook">ML/AI &middot; Data Scientist &middot; Published IEEE Researcher</p>
         <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong>, on exchange at <strong>Hanyang University in South Korea</strong> until June 2026. I have hands on experience in <strong>machine learning, data mining, NLP, and computer vision</strong>, building ML pipelines that turn unstructured data into actionable insights. I worked on projects that span handwriting recognition, professional profile classification, and IoT hardware development, contributing across the full lifecycle from ideation to deployment and publication.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-num">3.77</span><span class="hero-stat-label">GPA / 4.00</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">IEEE</span><span class="hero-stat-label">published author</span></div>
+          <div class="hero-stat"><span class="hero-stat-num">6+</span><span class="hero-stat-label">shipped projects</span></div>
+        </div>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/bill-tunjung/" class="social-link">[linkedin]</a>
           <a href="https://github.com/Gilliooo" class="social-link">[github]</a>
@@ -50,7 +60,7 @@
         </div>
         <a href="media/CV_Bill Grandy Tunjung.pdf" download class="cv-btn">[download_cv]</a>
       </div>
-      <div class="about-image">
+      <div class="about-image reveal">
         <img src="image/gillnew2softer_proc.jpg" alt="Profile photo" />
       </div>
     </div>
@@ -58,10 +68,10 @@
 
   <!-- TECH STACK -->
   <section id="tech-stack">
-    <h2 class="section-title">./technologies</h2>
+    <h2 class="section-title reveal" data-num="01">./technologies</h2>
     <div class="stack-grid">
 
-      <div class="stack-group">
+      <div class="stack-group reveal">
         <p class="stack-label">[languages]</p>
         <ul class="stack-list">
           <li>Python</li>
@@ -73,7 +83,7 @@
         </ul>
       </div>
 
-      <div class="stack-group">
+      <div class="stack-group reveal">
         <p class="stack-label">[ml_ai]</p>
         <ul class="stack-list">
           <li>PyTorch</li>
@@ -84,7 +94,7 @@
         </ul>
       </div>
 
-      <div class="stack-group">
+      <div class="stack-group reveal">
         <p class="stack-label">[data_analytics]</p>
         <ul class="stack-list">
           <li>Pandas</li>
@@ -96,7 +106,7 @@
         </ul>
       </div>
 
-      <div class="stack-group">
+      <div class="stack-group reveal">
         <p class="stack-label">[frameworks_tools]</p>
         <ul class="stack-list">
           <li>Streamlit</li>
@@ -107,7 +117,7 @@
         </ul>
       </div>
 
-      <div class="stack-group">
+      <div class="stack-group reveal">
         <p class="stack-label">[design_media]</p>
         <ul class="stack-list">
           <li>Figma</li>
@@ -123,10 +133,10 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <h2 class="section-title">./projects</h2>
+    <h2 class="section-title reveal" data-num="02">./projects</h2>
     <div class="projects-grid">
 
-      <div class="project-card" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="The model was trained on 1,800 LinkedIn profiles. Raw profile fields which includes summaries, job titles, and descriptions  were encoded into 768-dimensional feature vectors using BERT embeddings, then compressed with PCA before being passed to classifiers. The pipeline handled null values and used regex-based labeling to define what counts as a high-profile role. Random Forest, Logistic Regression, Naive Bayes, and SVC were all evaluated, with Logistic Regression coming out on top at 70.7% accuracy.">
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="The model was trained on 1,800 LinkedIn profiles. Raw profile fields which includes summaries, job titles, and descriptions  were encoded into 768-dimensional feature vectors using BERT embeddings, then compressed with PCA before being passed to classifiers. The pipeline handled null values and used regex-based labeling to define what counts as a high-profile role. Random Forest, Logistic Regression, Naive Bayes, and SVC were all evaluated, with Logistic Regression coming out on top at 70.7% accuracy.">
         <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" loading="lazy" />
         <h3>High-Profile LinkedIn Predictor</h3>
         <p>A web application that analyzes LinkedIn profile text to predict whether someone holds a high-level leadership position.
@@ -143,7 +153,7 @@
           <span class="tag">Pandas</span>
         </div>
       </div>
-      <div class="project-card" data-github="https://github.com/Gilliooo/Indonesian-Vs-Global-Movie-Trends-2023-2025"
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/Indonesian-Vs-Global-Movie-Trends-2023-2025"
         data-gallery="image/datanalysis/3.jpg,image/datanalysis/4.jpg,image/datanalysis/5.jpg,image/datanalysis/6.jpg,image/datanalysis/7.jpg,image/datanalysis/8.jpg"
         data-detail="Built a full visualization pipeline in Python using Matplotlib (mplcyberpunk) and Seaborn to surface cultural divergences in genre preferences. The pipeline processes 1,260+ FlixPatrol viewership records across 6 half-year periods. Charts include genre trend lines, custom horizontal candlestick charts showing per-genre volatility with open/close anchored to the first and last periods and wicks spanning all-time high/low, and head-to-head Indonesia vs. Global share comparisons. Key findings: Horror dominates Indonesian streaming — 60% of local productions and 70% of box office ticket sales. Globally, Animation is the only genre with consistent structural growth, led by Ne Zha 2 ($2.2B, 2025). Action/Adventure hit a post-2010 low at 35% domestic share in 2025, and the superhero genre shows clear audience fatigue with several films falling below the $500M viability threshold.">
         <img class="project-img" src="image/datanalysis/5.jpg" alt="Indonesian vs Global Movie Trends" loading="lazy" />
@@ -162,7 +172,7 @@
       </div>
       
 
-      <div class="project-card" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision" data-detail="The pipeline first uses a YOLO-based layout model to segment the page into regions which are titles, lists, and paragraphs before any text recognition happens. Each region is then passed individually to a TensorFlow/Keras character recognition model trained on handwritten datasets, with PaddleOCR's DBNet handling detection on noisier inputs. This per region approach is what allows the output to be reconstructed as structured Markdown rather than a flat string of text. The character recognition model achieved 65.9% accuracy on noisy real-world datasets. However the execution is still not perfect and struggles with very messy handwriting or unusual layouts, which is an area for future improvement.">
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision" data-detail="The pipeline first uses a YOLO-based layout model to segment the page into regions which are titles, lists, and paragraphs before any text recognition happens. Each region is then passed individually to a TensorFlow/Keras character recognition model trained on handwritten datasets, with PaddleOCR's DBNet handling detection on noisier inputs. This per region approach is what allows the output to be reconstructed as structured Markdown rather than a flat string of text. The character recognition model achieved 65.9% accuracy on noisy real-world datasets. However the execution is still not perfect and struggles with very messy handwriting or unusual layouts, which is an area for future improvement.">
         <img class="project-img" src="image/layoutparser.png" alt="Handwriting OCR to Text" loading="lazy" />
         <h3>Handwriting OCR to Text</h3>
         <p>Upload a photo of handwritten notes and get clean, structured Markdown back. The app uses a YOLO-based document layout
@@ -175,7 +185,7 @@
           <span class="tag">Streamlit</span>
         </div>
       </div>
-      <div class="project-card" data-link="https://gilliooo.github.io/Gallerymaker-App/"
+      <div class="project-card reveal" data-link="https://gilliooo.github.io/Gallerymaker-App/"
         data-github="https://github.com/Gilliooo/Gallerymaker-App">
         <img class="project-img" src="image/Gallery.png" alt="GalleryMaker - Image Layout Tool" loading="lazy" />
         <h3>GalleryMaker - Collage Layout Tool</h3>
@@ -188,7 +198,7 @@
           <span class="tag">html2canvas</span>
         </div>
       </div>
-      <div class="project-card" data-github="https://github.com/Gilliooo/LandscapeClassifier">
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/LandscapeClassifier">
         <img class="project-img" src="image/landscapeclassifier.png" alt="Landscape Classifier" loading="lazy" />
         <h3>Landscape Classifier</h3>
         <p>A web application that analyzes uploaded photos to predict the type of landscape shown. It uses a custom-trained
@@ -203,7 +213,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-github="https://github.com/Gilliooo/BudgetTrackerApp" data-detail="The app follows a client-server architecture where the Flutter frontend communicates with a local REST backend over HTTP using JWT Bearer token authentication. User sessions are persisted locally via Shared Preferences, storing the token and userId on login. The expense page features a custom numeric keypad for input, category tagging across five types which includeNeeds, Food, Transport, Utilities, and Entertainment  and live sync with full CRUD support including swipe-to-delete. The budgeting page handles per-month budget planning with a customizable percentage-based split system defaulting to the 50/30/20 rule, which can be edited or extended. The dashboard aggregates spending data into a daily expense line chart via FL Chart and computes an Outlook indicator that compares actual spending against the expected daily pace to flag overspending or underspending as a percentage.">
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/BudgetTrackerApp" data-detail="The app follows a client-server architecture where the Flutter frontend communicates with a local REST backend over HTTP using JWT Bearer token authentication. User sessions are persisted locally via Shared Preferences, storing the token and userId on login. The expense page features a custom numeric keypad for input, category tagging across five types which includeNeeds, Food, Transport, Utilities, and Entertainment  and live sync with full CRUD support including swipe-to-delete. The budgeting page handles per-month budget planning with a customizable percentage-based split system defaulting to the 50/30/20 rule, which can be edited or extended. The dashboard aggregates spending data into a daily expense line chart via FL Chart and computes an Outlook indicator that compares actual spending against the expected daily pace to flag overspending or underspending as a percentage.">
         <img class="project-img" src="image/trakr.png" alt="Trackr - Budget Tracker App" loading="lazy" />
         <h3>Trackr - Budget Tracker App</h3>
         <p>A mobile budgeting app built with Flutter to log expenses, monitor your balance, and take control of your personal
@@ -233,8 +243,8 @@
 
   <!-- PUBLICATION -->
   <section id="publication">
-    <h2 class="section-title">./publication</h2>
-    <div class="publication-entry">
+    <h2 class="section-title reveal" data-num="03">./publication</h2>
+    <div class="publication-entry reveal">
       <p class="pub-title">Analyzing Key LinkedIn Profile Factors for Securing Employment with Leading Roles</p>
       <p class="pub-venue">2025 6th International Conference on Artificial Intelligence and Data Sciences (AiDAS)</p>
       <p class="pub-abstract">This research that we have conducted analyzes which LinkedIn profile factors are most associated with securing high-level employment roles. Utilizing machine learning models and SHAP explainability, we found that recommendations, interests, experiences, and connections were more influential than popularity-based metrics such as follower count. The findings provide practical insights for professionals seeking to optimize their LinkedIn profiles and improve their career visibility.</p>
@@ -244,9 +254,9 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <h2 class="section-title">./education</h2>
+    <h2 class="section-title reveal" data-num="04">./education</h2>
 
-    <div class="edu-entry">
+    <div class="edu-entry reveal">
       <div class="edu-header">
         <div>
           <p class="edu-degree">Bachelor's of Computer Science</p>
@@ -261,7 +271,7 @@
       </ul>
     </div>
 
-    <div class="edu-entry">
+    <div class="edu-entry reveal">
       <div class="edu-header">
         <div>
           <p class="edu-degree">Exchange Student</p>
@@ -278,9 +288,9 @@
 
   <!-- EXPERIENCES -->
   <section id="experiences">
-    <h2 class="section-title">./experiences</h2>
+    <h2 class="section-title reveal" data-num="05">./experiences</h2>
 
-    <div class="edu-entry">
+    <div class="edu-entry reveal">
       <div class="edu-header">
         <div>
           <p class="edu-degree">Technical Officer</p>
@@ -295,7 +305,7 @@
       </ul>
     </div>
 
-    <div class="edu-entry">
+    <div class="edu-entry reveal">
       <div class="edu-header">
         <div>
           <p class="edu-degree">Coordinator of Creative Media</p>
@@ -309,6 +319,25 @@
       </ul>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner reveal">
+      <div class="footer-cta">
+        <p class="footer-prompt">$ echo "let's build something"</p>
+        <a href="mailto:billgrandytunjung@gmail.com" class="footer-mail">billgrandytunjung@gmail.com</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/bill-tunjung/">[linkedin]</a>
+        <a href="https://github.com/Gilliooo">[github]</a>
+        <a href="media/CV_Bill Grandy Tunjung.pdf" download>[cv]</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>&copy; 2026 Bill Grandy Tunjung</span>
+      <a href="#about" class="footer-top">[back_to_top]</a>
+    </div>
+  </footer>
 
   <!-- PROJECT MODAL -->
   <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">

@@ -1,5 +1,38 @@
 // script.js
 
+// ── Scroll reveal ──
+// Runs first so a failure in any later code (e.g. a missing CDN) can never
+// leave .reveal elements stuck at opacity:0.
+(() => {
+  const reveals = document.querySelectorAll('.reveal');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('in'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  reveals.forEach((el, i) => {
+    // Subtle stagger for grouped items (cards, stack groups)
+    el.style.transitionDelay = `${Math.min(i % 6, 5) * 60}ms`;
+    revealObserver.observe(el);
+  });
+
+  // Failsafe: if anything goes wrong, never keep content hidden.
+  window.addEventListener('load', () => {
+    setTimeout(() => reveals.forEach((el) => el.classList.add('in')), 2500);
+  });
+})();
+
 // ── Custom cursor (hover-capable devices only) ──
 const cursor = document.getElementById('cursor');
 
