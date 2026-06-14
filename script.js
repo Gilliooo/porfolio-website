@@ -124,8 +124,10 @@ function getModalFocusable() {
 function openModal(card) {
   const imgEl  = card.querySelector('.project-img');
   const title  = card.querySelector('h3').textContent;
-  const desc   = card.querySelector('p').textContent;
-  const detail = card.dataset.detail || '';
+  const desc   = card.querySelector('h3 + p').textContent;
+  const details = card.dataset.detail
+    ? card.dataset.detail.split('|').map(s => s.trim()).filter(Boolean)
+    : [];
   const link   = card.dataset.link;
   const github = card.dataset.github;
   const gallery = card.dataset.gallery ? card.dataset.gallery.split(',') : null;
@@ -133,8 +135,14 @@ function openModal(card) {
 
   modalTitle.textContent = title;
   modalDesc.textContent         = desc;
-  modalDetail.textContent       = detail;
-  modalDetail.style.display     = detail ? '' : 'none';
+  if (details.length) {
+    modalDetail.innerHTML = '<p class="modal-detail-label">// details</p><ul class="modal-detail-list">'
+      + details.map(d => `<li>${d}</li>`).join('') + '</ul>';
+    modalDetail.style.display = '';
+  } else {
+    modalDetail.innerHTML = '';
+    modalDetail.style.display = 'none';
+  }
   modalTagsEl.innerHTML  = tags.map(t => `<span class="tag">${t}</span>`).join('');
 
   modalLink.href          = link || '#';

@@ -55,7 +55,7 @@
         <p class="hero-prompt"><span class="hero-path">~/portfolio</span> $ profile</p>
         <h1 class="hero-name">Bill Grandy Tunjung</h1>
         <p class="about-hook">ML/AI &middot; Data Scientist &middot; Published IEEE Researcher</p>
-        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University</strong>, on exchange at <strong>Hanyang University in South Korea</strong> until June 2026. I have hands on experience in <strong>machine learning, data mining, NLP, and computer vision</strong>, building ML pipelines that turn unstructured data into actionable insights. I worked on projects that span handwriting recognition, professional profile classification, and IoT hardware development, contributing across the full lifecycle from ideation to deployment and publication.</p>
+        <p class="about-desc">I am a <strong>published IEEE researcher and Computer Science student at Binus University.</strong> I have hands on experience in <strong>machine learning, data mining, NLP, and computer vision</strong>, building ML pipelines that turn unstructured data into actionable insights.<br><br> I worked on projects that span handwriting recognition, professional profile classification, and IoT hardware development, contributing across the full lifecycle from ideation to deployment and publication.</p>
         <div class="hero-stats">
           <div class="hero-stat"><span class="hero-stat-num">3.77</span><span class="hero-stat-label">GPA / 4.00</span></div>
           <div class="hero-stat"><span class="hero-stat-num">IEEE</span><span class="hero-stat-label">published author</span></div>
@@ -147,12 +147,19 @@
     <h2 class="section-title reveal" data-num="02">./projects</h2>
     <div class="projects-grid">
 
-      <div class="project-card reveal" data-link="https://high-profile-linkedin-predictor.streamlit.app/" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="The model was trained on 1,800 LinkedIn profiles. Raw profile fields which includes summaries, job titles, and descriptions  were encoded into 768-dimensional feature vectors using BERT embeddings, then compressed with PCA before being passed to classifiers. The pipeline handled null values and used regex-based labeling to define what counts as a high-profile role. Random Forest, Logistic Regression, Naive Bayes, and SVC were all evaluated, with Logistic Regression coming out on top at 70.7% accuracy.">
+      <div class="project-card reveal" data-link="https://high-profile-linkedin-predictor.streamlit.app/" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="Trained on 1,800 LinkedIn profiles, encoded into 768-dim BERT embeddings and compressed with PCA | Regex-based labeling defines a high-profile role; pipeline handles null values | Compared Random Forest, Logistic Regression, Naive Bayes, and SVC | Best model: Logistic Regression at 70.7% accuracy">
         <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" loading="lazy" />
+        <p class="project-kind">NLP · Machine Learning</p>
         <h3>High-Profile LinkedIn Predictor</h3>
-        <p>A web application that analyzes LinkedIn profile text to predict whether someone holds a high-level leadership position.
-        It uses DistilBERT (via the Hugging Face transformers library) to extract meaning from unstructured career text and
-        passes it through a trained binary classifier to return a confidence score.</p>
+        <p>Reads LinkedIn profile text and predicts whether someone holds a high-level leadership role, using DistilBERT and a trained classifier to return a confidence score.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Trained on 1,800 profiles with BERT embeddings and PCA</li>
+            <li>Compared RF, Logistic Regression, Naive Bayes and SVC</li>
+            <li>Best model: Logistic Regression at 70.7% accuracy</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">Hugging Face</span>
@@ -166,13 +173,19 @@
       </div>
       <div class="project-card reveal" data-github="https://github.com/Gilliooo/Indonesian-Vs-Global-Movie-Trends-2023-2025"
         data-gallery="image/datanalysis/3.jpg,image/datanalysis/4.jpg,image/datanalysis/5.jpg,image/datanalysis/6.jpg,image/datanalysis/7.jpg,image/datanalysis/8.jpg"
-        data-detail="Built a full visualization pipeline in Python using Matplotlib (mplcyberpunk) and Seaborn to surface cultural divergences in genre preferences. The pipeline processes 1,260+ FlixPatrol viewership records across 6 half-year periods. Charts include genre trend lines, custom horizontal candlestick charts showing per-genre volatility with open/close anchored to the first and last periods and wicks spanning all-time high/low, and head-to-head Indonesia vs. Global share comparisons. Key findings: Horror dominates Indonesian streaming — 60% of local productions and 70% of box office ticket sales. Globally, Animation is the only genre with consistent structural growth, led by Ne Zha 2 ($2.2B, 2025). Action/Adventure hit a post-2010 low at 35% domestic share in 2025, and the superhero genre shows clear audience fatigue with several films falling below the $500M viability threshold.">
+        data-detail="Processes 1,260+ FlixPatrol viewership records across 6 half-year periods | Custom horizontal candlestick charts show per-genre volatility, with open/close at the first and last periods and wicks at all-time highs and lows | Finding: Animation is the only globally growing genre (led by Ne Zha 2 at $2.2B), while superhero films show audience fatigue">
         <img class="project-img" src="image/datanalysis/5.jpg" alt="Indonesian vs Global Movie Trends" loading="lazy" />
+        <p class="project-kind">Data Analysis · Visualization</p>
         <h3>Indonesian vs. Global Movie Trends (2023–2025)</h3>
-        <p>A data analysis project comparing Indonesian and global film genre consumption on streaming platforms, using
-          FlixPatrol
-          viewership data across 6 half-year periods. Features custom candlestick charts, genre trend lines, and head-to-head
-          Indonesia vs. Global share comparisons.</p>
+        <p>Compares Indonesian and global film-genre consumption on streaming, built on FlixPatrol data across six periods with custom candlestick charts and trend lines.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Processed 1,260+ viewership records across 6 periods</li>
+            <li>Horror dominates Indonesia: 60% of local output, 70% of box office</li>
+            <li>Globally, Animation is the only genre with structural growth</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">Pandas</span>
@@ -183,12 +196,19 @@
       </div>
       
 
-      <div class="project-card reveal" data-link="https://layout-parser-computervision.streamlit.app/" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision" data-detail="The pipeline first uses a YOLO-based layout model to segment the page into regions which are titles, lists, and paragraphs before any text recognition happens. Each region is then passed individually to a TensorFlow/Keras character recognition model trained on handwritten datasets, with PaddleOCR's DBNet handling detection on noisier inputs. This per region approach is what allows the output to be reconstructed as structured Markdown rather than a flat string of text. The character recognition model achieved 65.9% accuracy on noisy real-world datasets. However the execution is still not perfect and struggles with very messy handwriting or unusual layouts, which is an area for future improvement.">
+      <div class="project-card reveal" data-link="https://layout-parser-computervision.streamlit.app/" data-github="https://github.com/Gilliooo/Layout-Parser-ComputerVision" data-detail="YOLO layout model segments each page into titles, lists, and paragraphs before any text recognition | Each region is passed to a TensorFlow/Keras character model; PaddleOCR DBNet handles noisier detection | Per-region design rebuilds output as structured Markdown, not flat text | 65.9% accuracy on noisy real-world data; still struggles with very messy handwriting">
         <img class="project-img" src="image/layoutparser.png" alt="Handwriting OCR to Text" loading="lazy" />
+        <p class="project-kind">Computer Vision · Deep Learning</p>
         <h3>Handwriting OCR to Text</h3>
-        <p>Upload a photo of handwritten notes and get clean, structured Markdown back. The app uses a YOLO-based document layout
-        model to identify regions like titles, lists, and paragraphs, then runs a custom-trained character recognition model on
-        each region to transcribe the handwriting.</p>
+        <p>Upload a photo of handwritten notes and get clean, structured Markdown back, powered by a YOLO layout model and a custom character-recognition model.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Per-region pipeline outputs structured Markdown, not flat text</li>
+            <li>TensorFlow/Keras recognition with PaddleOCR detection</li>
+            <li>65.9% accuracy on noisy, real-world handwriting</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">TensorFlow/Keras</span>
@@ -196,13 +216,21 @@
           <span class="tag">Streamlit</span>
         </div>
       </div>
-      <div class="project-card reveal" data-link="https://gilliooo.github.io/Gallerymaker-App/"
-        data-github="https://github.com/Gilliooo/Gallerymaker-App">
+      <div class="project-card reveal" data-link="https://gallerymaker.vercel.app"
+        data-github="https://github.com/Gilliooo/Gallerymaker-App"
+        data-detail="Fully client-side with no backend | Customizable grid presets with adjustable gaps and background color | Exports the finished collage as a JPG via html2canvas">
         <img class="project-img" src="image/Gallery.png" alt="GalleryMaker - Image Layout Tool" loading="lazy" />
+        <p class="project-kind">Front-End · Web App</p>
         <h3>GalleryMaker - Collage Layout Tool</h3>
-        <p>A browser-based collage editor for composing gallery-style image layouts directly in the browser. Users arrange
-          photos
-          across customizable grid presets, tune gaps and backgrounds, then export the finished layout as a JPG.</p>
+        <p>A browser-based collage editor for gallery-style image layouts, entirely client-side. Arrange photos across grid presets and export the result as a JPG.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Fully client-side, no backend required</li>
+            <li>Customizable grid presets, gaps and backgrounds</li>
+            <li>One-click export to JPG via html2canvas</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">HTML/CSS</span>
           <span class="tag">JavaScript</span>
@@ -211,12 +239,19 @@
       </div>
       <div class="project-card reveal"
         data-gallery="image/travco/Home%20Page%20After%20Login.png,image/travco/Details%20Page%20Before%20Login.png,image/travco/Plan%20page.png,image/travco/Confirm%20Buy%20Ticket%20Offline.png,image/travco/Souvenirs%20Page.png,image/travco/Account%20Page.png"
-        data-detail="Designed end to end in Figma for the INVFEST 7.0 UI/UX competition, where the concept reached the finalist round. TravCo covers the full travel journey across 20+ screens: onboarding and account creation, an Explore feed of curated experiences and nearby destinations with ratings and distance, destination detail pages, a calendar-based trip planner (&quot;Create Your Plan&quot;), online and offline ticket purchase flows, in-app maps and navigation, a souvenir marketplace, and payment confirmation states. The design system uses a fresh green palette, rounded cards, and a consistent bottom-tab navigation (Explore · Plan · Account) for a cohesive, friendly feel.">
+        data-detail="Designed end to end in Figma for INVFEST 7.0, reaching the finalist round | 20+ screens: onboarding, Explore feed, calendar trip planner, ticket flows, in-app maps, souvenir shop, and payment states | Design system with a fresh green palette and a consistent Explore, Plan, Account navigation">
         <img class="project-img" src="image/travco/Home%20Page%20After%20Login.png" alt="TravCo travel app UI/UX design" loading="lazy" />
+        <p class="project-kind">UI/UX Design · Figma</p>
         <h3>TravCo - Travel Companion App</h3>
-        <p>A travel companion app concept for discovering and planning trips around Indonesia — browse top experiences, build
-          a day-by-day itinerary, book tickets, and shop local souvenirs. A high-fidelity UI/UX design and interactive
-          prototype built in Figma, and a finalist at the INVFEST 7.0 UI/UX competition.</p>
+        <p>A travel companion app concept for discovering and planning trips around Indonesia. A high-fidelity UI/UX design and interactive prototype built in Figma.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Finalist at the INVFEST 7.0 UI/UX competition</li>
+            <li>20+ screens covering the full travel journey</li>
+            <li>Cohesive green design system: Explore, Plan, Account</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Figma</span>
           <span class="tag">UI/UX Design</span>
@@ -225,12 +260,19 @@
           <span class="tag">Mobile App</span>
         </div>
       </div>
-      <div class="project-card reveal" data-link="https://gillywillynilly-landscapeclassifier.hf.space/" data-github="https://github.com/Gilliooo/LandscapeClassifier">
+      <div class="project-card reveal" data-link="https://gillywillynilly-landscapeclassifier.hf.space/" data-github="https://github.com/Gilliooo/LandscapeClassifier" data-detail="Custom CNN built and trained with Keras/TensorFlow | Returns the top-3 landscape predictions with confidence scores | Lightweight Flask backend serving a simple web UI">
         <img class="project-img" src="image/landscapeclassifier.png" alt="Landscape Classifier" loading="lazy" />
+        <p class="project-kind">Computer Vision · Deep Learning</p>
         <h3>Landscape Classifier</h3>
-        <p>A web application that analyzes uploaded photos to predict the type of landscape shown. It uses a custom-trained
-        Convolutional Neural Network (via Keras/TensorFlow) to extract visual features from images and passes them through a
-        trained multi-class classifier to return the top 3 predictions with confidence scores.</p>
+        <p>Analyzes an uploaded photo and predicts the type of landscape it shows. A custom-trained CNN returns the top-3 predictions with confidence scores.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Custom CNN built and trained with Keras/TensorFlow</li>
+            <li>Returns top-3 predictions with confidence scores</li>
+            <li>Flask backend serving a lightweight web UI</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">Flask</span>
@@ -240,17 +282,25 @@
         </div>
       </div>
 
-      <div class="project-card reveal" data-github="https://github.com/Gilliooo/BudgetTrackerApp" data-detail="The app follows a client-server architecture where the Flutter frontend communicates with a local REST backend over HTTP using JWT Bearer token authentication. User sessions are persisted locally via Shared Preferences, storing the token and userId on login. The expense page features a custom numeric keypad for input, category tagging across five types which includeNeeds, Food, Transport, Utilities, and Entertainment  and live sync with full CRUD support including swipe-to-delete. The budgeting page handles per-month budget planning with a customizable percentage-based split system defaulting to the 50/30/20 rule, which can be edited or extended. The dashboard aggregates spending data into a daily expense line chart via FL Chart and computes an Outlook indicator that compares actual spending against the expected daily pace to flag overspending or underspending as a percentage.">
+      <div class="project-card reveal" data-github="https://github.com/Gilliooo/BudgetTrackerApp" data-detail="Flutter client talks to a REST backend over HTTP with JWT auth; sessions persisted locally | Expense page: custom keypad, category tagging, live CRUD with swipe-to-delete | Budgeting uses a customizable percentage split that defaults to 50/30/20 | Dashboard: FL Chart spending trends plus an Outlook indicator flagging over or under-spending">
         <img class="project-img" src="image/trakr.png" alt="Trackr - Budget Tracker App" loading="lazy" />
+        <p class="project-kind">Mobile · Full-Stack</p>
         <h3>Trackr - Budget Tracker App</h3>
-        <p>A mobile budgeting app built with Flutter to log expenses, monitor your balance, and take control of your personal
-          finances.</p>
+        <p>A mobile budgeting app built with Flutter to log expenses, monitor balance, and control personal finances, backed by a JWT-secured REST API.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Client-server architecture with a JWT-secured REST backend</li>
+            <li>Expense CRUD with swipe-to-delete and a 50/30/20 split</li>
+            <li>Dashboard with FL Chart trends and an overspending indicator</li>
+          </ul>
+        </div>
         <div class="project-tags">
           <span class="tag">Flutter</span>
           <span class="tag">Dart</span>
-          <!-- <span class="tag">Shared Preferences</span>
+          <span class="tag">REST API</span>
+          <span class="tag">JWT</span>
           <span class="tag">FL Chart</span>
-          <span class="tag">REST API</span> -->
         </div>
       </div>
 
@@ -376,7 +426,7 @@
       </div>
       <div class="modal-media"></div>
       <p class="modal-desc"></p>
-      <p class="modal-detail"></p>
+      <div class="modal-detail"></div>
       <div class="modal-tags"></div>
       <div class="modal-actions">
         <a href="#" class="modal-link" target="_blank" rel="noopener">[view_project]</a>
