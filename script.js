@@ -159,7 +159,7 @@ function openModal(card) {
     dlBtn.className   = 'modal-download';
     dlBtn.href        = download;
     dlBtn.download    = '';
-    dlBtn.textContent = '[download_v3.2.zip]';
+    dlBtn.textContent = '[IDXAlert_v3.2.zip]';
     modal.querySelector('.modal-actions').appendChild(dlBtn);
   }
 
