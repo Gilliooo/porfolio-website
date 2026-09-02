@@ -569,6 +569,33 @@ section {
   background: #0a0a0a;
 }
 
+/* ─── DOWNLOADABLE BADGE ─── */
+.download-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5c518;
+  color: #0a0a0a;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  padding: 4px 9px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.download-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+
 .project-card:hover {
   background-color: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
@@ -844,6 +871,16 @@ section {
 .modal-link:hover,
 .modal-github:hover {
   color: var(--bright);
+}
+
+.modal-download {
+  color: #f5c518;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.modal-download:hover {
+  color: #ffe066;
 }
 
 /* ─── EDUCATION ─── */

@@ -128,9 +128,10 @@ function openModal(card) {
   const details = card.dataset.detail
     ? card.dataset.detail.split('|').map(s => s.trim()).filter(Boolean)
     : [];
-  const link   = card.dataset.link;
-  const github = card.dataset.github;
-  const gallery = card.dataset.gallery ? card.dataset.gallery.split(',') : null;
+  const link     = card.dataset.link;
+  const github   = card.dataset.github;
+  const download = card.dataset.download;
+  const gallery  = card.dataset.gallery ? card.dataset.gallery.split(',') : null;
   const tags   = [...card.querySelectorAll('.tag')].map(t => t.textContent);
 
   modalTitle.textContent = title;
@@ -150,6 +151,17 @@ function openModal(card) {
 
   modalGithub.href          = github || '#';
   modalGithub.style.display = github ? '' : 'none';
+
+  const existingDl = modal.querySelector('.modal-download');
+  if (existingDl) existingDl.remove();
+  if (download) {
+    const dlBtn = document.createElement('a');
+    dlBtn.className   = 'modal-download';
+    dlBtn.href        = download;
+    dlBtn.download    = '';
+    dlBtn.textContent = '[download_v3.2.zip]';
+    modal.querySelector('.modal-actions').appendChild(dlBtn);
+  }
 
   if (gallery && gallery.length > 0) {
     let idx = 0;

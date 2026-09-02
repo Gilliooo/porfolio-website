@@ -147,6 +147,32 @@
     <h2 class="section-title reveal" data-num="02">./projects</h2>
     <div class="projects-grid">
 
+      <div class="project-card reveal"
+        data-download="media/IDXAlert_v3.2.zip"
+        data-detail="Polls IDX's undocumented announcement API on an absolute tick grid anchored to the exchange's own clock | Keep-alive connection reuse and TLS session resumption so each poll costs one round trip | Two non-obvious bugs found by measurement: the API's pagination uses a page index (not a row offset), so an off-by-one silently returned the second page and hid the newest filing; and the bot protection required advertising an ALPN protocol list in the TLS handshake | User-configurable ticker and keyword filters cut routine noise by roughly a third | Ships as a single signed-free executable with a tray menu, desktop notifications, and a filter editor | Seven offline test suites including stubbed GUI toolkits so headless runs can't pass vacuously">
+        <span class="download-badge">Downloadable</span>
+        <img class="project-img" src="image/idxalert.png" alt="IDXAlert - IDX Filing Monitor" loading="lazy" />
+        <p class="project-kind">Systems · Desktop App</p>
+        <h3>IDXAlert - IDX Filing Monitor</h3>
+        <p>A Windows tray app that watches the Indonesia Stock Exchange disclosure feed and notifies within a minute of a
+          filing going live. Measured median latency: 22 seconds across 38 live alerts.</p>
+        <div class="project-results">
+          <p class="results-label">// results</p>
+          <ul>
+            <li>Median 22 s end-to-end latency, worst case 23 s, across 38 live alerts</li>
+            <li>Ticker/keyword filters cut routine noise by ~33%</li>
+            <li>Two silent bugs found by measurement, not guesswork</li>
+          </ul>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Windows</span>
+          <span class="tag">REST API</span>
+          <span class="tag">TLS</span>
+          <span class="tag">Systems</span>
+        </div>
+      </div>
+
       <div class="project-card reveal" data-link="https://high-profile-linkedin-predictor.streamlit.app/" data-github="https://github.com/Gilliooo/High-Profile-LinkedIn-Predictor" data-detail="Trained on 1,800 LinkedIn profiles, encoded into 768-dim BERT embeddings and compressed with PCA | Regex-based labeling defines a high-profile role; pipeline handles null values | Compared Random Forest, Logistic Regression, Naive Bayes, and SVC | Best model: Logistic Regression at 70.7% accuracy">
         <img class="project-img" src="image/linkedinpredictor.png" alt="High-Profile LinkedIn Predictor" loading="lazy" />
         <p class="project-kind">NLP · Machine Learning</p>
